@@ -1,20 +1,14 @@
-import React,{useContext} from 'react'
-import { useSelector , useDispatch } from 'react-redux';
-
-// importing actions
-import { addtocard } from '../Redux/Actions/Action';
-
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { increment } from '../Redux/Slicers/counter'
 
 function Module1() {
-
-  const dispatch = useDispatch();
-
-  const counter =  useSelector (( state ) => state.Cartitmechanger )
-
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
   return (
     <div>
-      <h5>Total: {counter} </h5>
-      <p>Adding: <button onClick={ () => dispatch( addtocard() ) } > Add </button></p>
+      total:{count}
+      <p>Adding: <button onClick={() => dispatch(increment())} > Add </button></p>
     </div>
   )
 
